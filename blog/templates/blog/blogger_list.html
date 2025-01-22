@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>All blogs</h1>
+    {% if userprofile_list %}
+    <ul>
+      {% for userprofile in userprofile_list %}
+        <h2>
+        <a href="{% url 'blog_by_user' user.pk %}">{{ user }}</a>
+        </h2>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no blogger yet. Register and join my blog to be the first blogger!.</p>
+    {% endif %}       
+{% endblock %}

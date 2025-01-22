@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <h1>All blogs</h1>
+    {% if blog_list %}
+    <ul>
+      {% for blog in blog_list %}
+      <h3>
+        <a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a>({{blog.upload_time}}) — <a href="{% url 'blog_by_user' blog.author.pk %}">{{ blog.author }}</a>
+      </h3>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no blogs.</p>
+    {% endif %}       
+{% endblock %}
